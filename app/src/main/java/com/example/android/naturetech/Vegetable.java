@@ -14,8 +14,9 @@ public class Vegetable {
 
     }
 
-    public Vegetable(String vegetable_name, String season, String location) {
+    public Vegetable(int vegId, String vegetable_name, String season, String location) {
         super();
+        this.id = vegId;
         this.vegetableName = vegetable_name;
         this.season = season;
         this.location = location;
