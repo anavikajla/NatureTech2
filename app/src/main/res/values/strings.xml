@@ -1,3 +1,24 @@
 <resources>
+    <!-- Strings for Sign In page-->
     <string name="app_name">NatureTech</string>
+    <string name="signin">Sign In</string>
+    <string name="email_prompt">Email</string>
+    <string name="password_prompt">Password</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings for Home page-->
+    <string name="Home">Home</string>
+    <string name="MyFarm">My Farm</string>
+    <string name="DailyActivityList">Daily Activity List</string>
+    <string name="KnowledgeCentre">Knowledge Centre</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Strings for knowledge centre Page-->
+    <string name="vegetable">Vegetable</string>
+    <string name="season">Season</string>
+    <string name="location">Location</string>
+
+    <string name="search">Search</string>
+    <string name="title_activity_vegetable_page">VegetablePage</string>
+
 </resources>
