@@ -1,8 +1,12 @@
 package com.example.android.naturetech;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by anavikajla on 14/06/16.
@@ -16,7 +20,6 @@ public class DatabaseAccess {
     /**
      * Private constructor to avoid object creation from outside classes.
      *
-     * @param context
      */
 
     private DatabaseAccess(Context context) {
@@ -53,52 +56,26 @@ public class DatabaseAccess {
     }
 
     /**
-     * Read all quotes from the database.
+     * Read all vegetables from the database "Vegetables.db" and table "vegetables_details".
      *
-     * @return a List of quotes
+     * @return a List of vegetables
      */
-//    public List<String> getQuotes() {
-//        List<String> list = new ArrayList<>();
-//        String[] veg;
-//
-//
-//        Cursor cursor = database.rawQuery("SELECT * FROM vegetables_details", null);
-//
-////        veg = new String[cursor.getCount()];
-////
-////        int i = 0;
-////
-////        ArrayList<String> array = new ArrayList<String>();
-////        while (cursor.moveToNext()) {
-////            veg[i] = cursor.getString(0);
-////
-////
-//           //i++;
-//             cursor.moveToFirst();
-//             while (!cursor.isAfterLast()) {
-//
-//             list.add(cursor.getString(0));
-//              cursor.moveToNext();
-//        }
-//        cursor.close();
-//        return list;
-//
-//
-//    }
+    public List<String> getVegetables() {
+        List<String> listOfVegetableNames = new ArrayList<>();
+        String[] veg;
 
-//    public List<Vegetable> getVegetables() {
-//        List<Vegetable> list = new ArrayList<>();
-//        Cursor cursor = database.rawQuery("SELECT * FROM vegetables_details", null);
-//        cursor.moveToFirst();
-//        while (!cursor.isAfterLast()) {
-//            Vegetable contact = new Vegetable();
-//            contact.setVegetableName(cursor.getString(0));
-//            contact.setSeason(cursor.getString(1));
-//            contact.setLocation(cursor.getString(2));
-//            list.add(contact);
-//            cursor.moveToNext();
-//        }
-//        cursor.close();
-//        return list;
-//    }
+        Cursor cursor = database.rawQuery("SELECT * FROM vegetables_details", null);
+
+        veg = new String[cursor.getCount()];
+
+        int i = 0;
+
+        while (cursor.moveToNext()) {
+            veg[i] = cursor.getString(0); //1 = column for veggie name
+            listOfVegetableNames.add(veg[i]);
+            i++;
+        }
+        cursor.close();
+        return listOfVegetableNames;
+    }
 }
