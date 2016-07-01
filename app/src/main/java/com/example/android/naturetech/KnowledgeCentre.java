@@ -1,29 +1,52 @@
 package com.example.android.naturetech;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class KnowledgeCentre extends Activity implements AdapterView.OnItemSelectedListener {
 
+    public static String vegSelection, seedTypeSelection;
+
+    Spinner vegetableDropdown;
+    Spinner seasonDropdown;
+    Button search;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_knowledge_centre);
 
-        Spinner vegetableDropdown = (Spinner) findViewById(R.id.spinner); // vegetables
-        Spinner seasonDropdown = (Spinner) findViewById(R.id.spinner2); // time period
-        Spinner locationDropdown = (Spinner) findViewById(R.id.spinner3); // location
+        vegetableDropdown = (Spinner) findViewById(R.id.spinner); // vegetables
+        seasonDropdown = (Spinner) findViewById(R.id.spinner2); // time period
+        // Spinner locationDropdown = (Spinner) findViewById(R.id.spinner3); // location
+
+        search = (Button) findViewById(R.id.search);
 
         vegetableDropdown.setOnItemSelectedListener(this);
         seasonDropdown.setOnItemSelectedListener(this);
-        locationDropdown.setOnItemSelectedListener(this);
+        //locationDropdown.setOnItemSelectedListener(this);
+
+        // if(vegetableDropdown.equals("Tomato"))
+
+
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(KnowledgeCentre.this, VegetableTemplate.class);
+                startActivity(i);
+            }
+        });
 
 
 
@@ -46,27 +69,25 @@ public class KnowledgeCentre extends Activity implements AdapterView.OnItemSelec
 
 
 
-        /* Dropdown creation for season */
-        List<String> season = new ArrayList<>();
-        season.add("Summer");
-        season.add("Winter");
-        season.add("Spring");
-        season.add("Autumn");
+        /* Dropdown creation for seed type  */
+        List<String> seedType = new ArrayList<>();
+        seedType.add("Normal");
+        seedType.add("Hybrid");
 
         // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, season);
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, seedType);
 
         // Drop down layout style - list view with radio button
         dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // attaching data adapter to spinner
         seasonDropdown.setAdapter(dataAdapter2);
-        seasonDropdown.setPrompt("Select the season you will plant it in");
+        seasonDropdown.setPrompt("Select the seedType");
 
 
 
         /* Dropdown creation for location */
-        List<String> location = new ArrayList<>();
+        /*List<String> location = new ArrayList<>();
         location.add("Andaman and Nicobar Islands");
         location.add("Andhra Pradesh");
         location.add("Arunachal Pradesh");
@@ -112,18 +133,22 @@ public class KnowledgeCentre extends Activity implements AdapterView.OnItemSelec
         // Drop down layout style - list view with radio button
         dataAdapter3.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        locationDropdown.setPrompt("Select your state");
+        locationDropdown.setPrompt("Select your state");*/
     }
 
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         // On selecting a spinner item
         String item = parent.getItemAtPosition(position).toString();
 
+        vegSelection = vegetableDropdown.getSelectedItem().toString();
+        seedTypeSelection = seasonDropdown.getSelectedItem().toString();
+
         // Showing selected spinner item
-        //Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_SHORT).show();
+        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_SHORT).show();
     }
 
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub
     }
 }
+

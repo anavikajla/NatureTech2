@@ -17,6 +17,7 @@ public class DatabaseAccess {
     private SQLiteOpenHelper openHelper;
     private SQLiteDatabase database;
 
+
     /**
      * Private constructor to avoid object creation from outside classes.
      *
@@ -64,18 +65,227 @@ public class DatabaseAccess {
         List<String> listOfVegetableNames = new ArrayList<>();
         String[] veg;
 
-        Cursor cursor = database.rawQuery("SELECT * FROM vegetables_details", null);
+        String query = "SELECT * FROM Names";
+        Cursor cursor = database.rawQuery(query, null);
 
         veg = new String[cursor.getCount()];
 
         int i = 0;
 
         while (cursor.moveToNext()) {
-            veg[i] = cursor.getString(0); //1 = column for veggie name
+            veg[i] = cursor.getString(0); //0 = column for veggie name
             listOfVegetableNames.add(veg[i]);
             i++;
         }
         cursor.close();
         return listOfVegetableNames;
+    }
+
+    /* queries seed rate */
+    public List<String> getVegetableSeedRate() {
+        List<String> seedRate = new ArrayList<>();
+        String[] veg;
+        String vegetable = KnowledgeCentre.vegSelection;
+        String seedType = KnowledgeCentre.seedTypeSelection;
+
+        String query = "SELECT * FROM Vegetables WHERE Veg_Name=\"" + vegetable + "\" AND Seed_Type=\"" + seedType + "\"";
+        Cursor seedRateCursor = database.rawQuery(query, null);
+
+        veg = new String[seedRateCursor.getCount()];
+
+        int i = 0;
+
+        while (seedRateCursor.moveToNext()) {
+            veg[i] = seedRateCursor.getString(3); //3 = column for seedrate
+            seedRate.add(veg[i]);
+            i++;
+        }
+
+        seedRateCursor.close();
+        return seedRate;
+    }
+
+    /**
+     * queries transplanting
+     */
+    public List<String> getVegetableTransplanting() {
+        List<String> transplanting = new ArrayList<>();
+        String[] veg;
+        String vegetable = KnowledgeCentre.vegSelection;
+        String seedType = KnowledgeCentre.seedTypeSelection;
+
+        String query = "SELECT * FROM Vegetables WHERE Veg_Name=\"" + vegetable + "\" AND Seed_Type=\"" + seedType + "\"";
+        Cursor transplantCursor = database.rawQuery(query, null);
+
+        veg = new String[transplantCursor.getCount()];
+
+        int i = 0;
+
+        while (transplantCursor.moveToNext()) {
+            veg[i] = transplantCursor.getString(4); //4 = column for transplanting
+            transplanting.add(veg[i]);
+            i++;
+        }
+
+        transplantCursor.close();
+        return transplanting;
+    }
+
+    /**
+     * queries spacing
+     */
+    public List<String> getSeedSpacing() {
+        List<String> spacing = new ArrayList<>();
+        String[] space;
+        String vegetable = KnowledgeCentre.vegSelection;
+        String seedType = KnowledgeCentre.seedTypeSelection;
+
+        String query = "SELECT * FROM Vegetables WHERE Veg_Name=\"" + vegetable + "\" AND Seed_Type=\"" + seedType + "\"";
+        Cursor spacingCursor = database.rawQuery(query, null);
+
+        space = new String[spacingCursor.getCount()];
+
+        int i = 0;
+
+        while (spacingCursor.moveToNext()) {
+            space[i] = spacingCursor.getString(5); //5 = column for spacing
+            spacing.add(space[i]);
+            i++;
+        }
+
+        spacingCursor.close();
+        return spacing;
+    }
+
+    /**
+     * queries months
+     */
+    public List<String> getMonthsOfSowing() {
+        List<String> months = new ArrayList<>();
+        String[] month;
+        String vegetable = KnowledgeCentre.vegSelection;
+        String seedType = KnowledgeCentre.seedTypeSelection;
+
+        String query = "SELECT * FROM Vegetables WHERE Veg_Name=\"" + vegetable + "\" AND Seed_Type=\"" + seedType + "\"";
+        Cursor spacingCursor = database.rawQuery(query, null);
+
+        month = new String[spacingCursor.getCount()];
+
+        int i = 0;
+
+        while (spacingCursor.moveToNext()) {
+            month[i] = spacingCursor.getString(6); //6 = column for months
+            months.add(month[i]);
+            i++;
+        }
+
+        spacingCursor.close();
+        return months;
+    }
+
+    /**
+     * queries season
+     */
+    public List<String> getSeasonOfSowing() {
+        List<String> season = new ArrayList<>();
+        String[] month;
+        String vegetable = KnowledgeCentre.vegSelection;
+        String seedType = KnowledgeCentre.seedTypeSelection;
+
+        String query = "SELECT * FROM Vegetables WHERE Veg_Name=\"" + vegetable + "\" AND Seed_Type=\"" + seedType + "\"";
+        Cursor spacingCursor = database.rawQuery(query, null);
+
+        month = new String[spacingCursor.getCount()];
+
+        int i = 0;
+
+        while (spacingCursor.moveToNext()) {
+            month[i] = spacingCursor.getString(7); //7 = column for season
+            season.add(month[i]);
+            i++;
+        }
+
+        spacingCursor.close();
+        return season;
+    }
+
+    /**
+     * queries weed-control method
+     */
+    public List<String> getWeedControl() {
+        List<String> weedControlMethods = new ArrayList<>();
+        String[] weedControl;
+        String vegetable = KnowledgeCentre.vegSelection;
+        String seedType = KnowledgeCentre.seedTypeSelection;
+
+        String query = "SELECT * FROM Vegetables WHERE Veg_Name=\"" + vegetable + "\" AND Seed_Type=\"" + seedType + "\"";
+        Cursor weedControlCursor = database.rawQuery(query, null);
+
+        weedControl = new String[weedControlCursor.getCount()];
+
+        int i = 0;
+
+        while (weedControlCursor.moveToNext()) {
+            weedControl[i] = weedControlCursor.getString(8); //8 = column for weed-control method
+            weedControlMethods.add(weedControl[i]);
+            i++;
+        }
+
+        weedControlCursor.close();
+        return weedControlMethods;
+    }
+
+    /**
+     * queries disease control method
+     */
+    public List<String> getDiseaseControl() {
+        List<String> diseaseControlMethods = new ArrayList<>();
+        String[] diseaseControl;
+        String vegetable = KnowledgeCentre.vegSelection;
+        String seedType = KnowledgeCentre.seedTypeSelection;
+
+        String query = "SELECT * FROM Vegetables WHERE Veg_Name=\"" + vegetable + "\" AND Seed_Type=\"" + seedType + "\"";
+        Cursor diseaseControlCursor = database.rawQuery(query, null);
+
+        diseaseControl = new String[diseaseControlCursor.getCount()];
+
+        int i = 0;
+
+        if (diseaseControlCursor.getCount() > 0) {
+            while (diseaseControlCursor.moveToNext()) {
+                diseaseControl[i] = diseaseControlCursor.getString(9); //10 = column for disease control
+                diseaseControlMethods.add(diseaseControl[i]);
+                i++;
+            }
+        }
+
+        diseaseControlCursor.close();
+        return diseaseControlMethods;
+    }
+
+    /**
+     * queries insect control method
+     */
+    public List<String> getInsectControl() {
+        List<String> insectControlMethods = new ArrayList<>();
+        String[] insectControl;
+        String vegetable = KnowledgeCentre.vegSelection;
+        String seedType = KnowledgeCentre.seedTypeSelection;
+
+        String query = "SELECT * FROM Vegetables WHERE Veg_Name=\"" + vegetable + "\" AND Seed_Type=\"" + seedType + "\"";
+        Cursor insectControlCursor = database.rawQuery(query, null);
+
+        insectControl = new String[insectControlCursor.getCount()];
+
+        int i = 0;
+
+        while (insectControlCursor.moveToNext()) {
+            insectControl[i] = insectControlCursor.getString(10); //11 = column for insect control
+            insectControlMethods.add(insectControl[i]);
+            i++;
+        }
+
+        insectControlCursor.close();
+        return insectControlMethods;
     }
 }
