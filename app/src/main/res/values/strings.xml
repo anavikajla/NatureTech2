@@ -7,18 +7,43 @@
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings for Home page-->
-    <string name="Home">Home</string>
+    <string name="Home" translatable="false">Home</string>
     <string name="MyFarm">My Farm</string>
     <string name="DailyActivityList">Daily Activity List</string>
-    <string name="KnowledgeCentre">Knowledge Centre</string>
+    <string name="KnowledgeCentre" translatable="false">Knowledge Centre</string>
     <string name="action_settings">Settings</string>
 
     <!-- Strings for knowledge centre Page-->
     <string name="vegetable">Vegetable</string>
     <string name="season">Season</string>
     <string name="location">Location</string>
+    <string name="seedType">Seed Type</string>
 
     <string name="search">Search</string>
     <string name="title_activity_vegetable_page">VegetablePage</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="server_client_id">551168888776-cu01p7vie033nv6pi6aro094fvhj25nj.apps.googleusercontent.com</string>
+
+    <!-- Strings related to Vegetable Template -->
+    <string name="seed_rate">Seed Rate</string>
+    <string name="transplanting">Transplanting</string>
+    <string name="spacing">Spacing</string>
+    <string name="months">Month of Sowing</string>
+    <!-- season already defined-->
+    <string name="weed">Weed Control</string>
+    <string name="disease">Disease Control</string>
+    <string name="insect">Insect Control</string>
 
 </resources>

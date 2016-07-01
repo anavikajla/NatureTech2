@@ -10,28 +10,24 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:weightSum="6"
     tools:context="com.example.android.naturetech.Home">
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:layout_marginTop="16dp"
-        android:gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="32dp"
         android:text="@string/KnowledgeCentre"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="32dp">
 
         <TextView
-            style="@style/KnowledgeCentreDropdown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/vegetable" />
@@ -43,20 +39,20 @@
             android:drawSelectorOnTop="true"
             android:spinnerMode="dropdown"
             android:text="@string/vegetable" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:layout_weight="1"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:orientation="vertical">
 
         <TextView
-            style="@style/KnowledgeCentreDropdown"
-            android:layout_width="56dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/season" />
+            android:text="@string/seedType" />
 
         <Spinner
             android:id="@+id/spinner2"
@@ -66,34 +62,12 @@
             android:text="@string/vegetable" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <TextView
-            style="@style/KnowledgeCentreDropdown"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/location" />
-
-        <Spinner
-            android:id="@+id/spinner3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:spinnerMode="dropdown"
-            android:text="@string/vegetable" />
-
-    </LinearLayout>
-
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:background="@color/colorAccent"
         android:text="@string/search" />
-
 </LinearLayout>
